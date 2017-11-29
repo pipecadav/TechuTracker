@@ -1,6 +1,8 @@
 
 package avl;
 
+import listaadyacencia.Nodo;
+
 /**
  *
  * @author Felipe Cadavid
@@ -10,10 +12,10 @@ public class NodoAVL {
     private NodoAVL ligaIzq;
     private NodoAVL ligaDer;
     private int fB;
-    private Object d;
+    private Nodo vertice;
 
-    public NodoAVL(Object d) {
-        this.d = d;
+    public NodoAVL(Nodo vertice) {
+        this.vertice = vertice;
         ligaIzq = ligaDer = null;
     }
 
@@ -41,12 +43,12 @@ public class NodoAVL {
         this.fB = fB;
     }
 
-    public Object getD() {
-        return d;
+    public Object getVertice() {
+        return vertice;
     }
 
-    public void setD(Object d) {
-        this.d = d;
+    public void setVertice(Nodo vertice) {
+        this.vertice = vertice;
     }
     
     public int compareTo(NodoAVL x){

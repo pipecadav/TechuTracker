@@ -1,6 +1,8 @@
 
 package avl;
 
+import listaadyacencia.Nodo;
+
 /**
  * Codificación de lo visto en clase
  * @author Felipe Cadavid
@@ -14,9 +16,9 @@ public class ArbolAVL {
     public ArbolAVL() {
     }
     
-    public void insertarDato(Object dat){
+    public void insertarDato(Nodo vertice){
         
-        NodoAVL n = new NodoAVL(dat);
+        NodoAVL n = new NodoAVL(vertice);
         if(root == null){
             root = n;
         }
@@ -98,18 +100,6 @@ public class ArbolAVL {
             padrePivote.setLigaDer(q);
             
         }
-    }
-    
-    public void buscarInsertar(){
-        
-    }
-    
-    public void recalcularlosFB(){
-        
-    }
-    
-    public void rebalancear(){
-        
     }
     
     public void rotacionDerecha(NodoAVL pivote, NodoAVL q){
