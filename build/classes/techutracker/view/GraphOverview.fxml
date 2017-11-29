@@ -31,14 +31,14 @@
                      <children>
                         <Label text="Número A" />
                         <Label text="Número B" GridPane.rowIndex="2" />
-                        <TextField styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="numberATextField" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="numberBTextField" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
-                  <Button layoutX="48.0" layoutY="199.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="187.0" text="Relación A-B" />
-                  <Button layoutX="48.0" layoutY="240.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="187.0" text="Menor Número Saltos" />
-                  <Button layoutX="48.0" layoutY="280.0" mnemonicParsing="false" text="Cantidad Llamadas de A" />
-                  <Button layoutX="48.0" layoutY="319.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="187.0" text="Total Números" />
+                  <Button layoutX="48.0" layoutY="199.0" mnemonicParsing="false" onAction="#conectionAB" prefHeight="28.0" prefWidth="187.0" text="Relación A-B" />
+                  <Button layoutX="48.0" layoutY="240.0" mnemonicParsing="false" onAction="#lessAmountHops" prefHeight="28.0" prefWidth="187.0" text="Menor Número Saltos" />
+                  <Button layoutX="48.0" layoutY="280.0" mnemonicParsing="false" onAction="#amountOfCallsA" text="Cantidad Llamadas de A" />
+                  <Button layoutX="48.0" layoutY="319.0" mnemonicParsing="false" onAction="#totalNumbers" prefHeight="28.0" prefWidth="187.0" text="Total Números" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">

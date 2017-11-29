@@ -1,6 +1,6 @@
 /*
  * Este es el controlador de menu principal. Permite gestionar la aplicación principal
- * Esto implica que permite cargar un archivo de texto nuevo, o cargar un grafo
+ * Por ejemplo, permite cargar un archivo de texto nuevo, o cargar un grafo .xml
  * 
  */
 package techutracker.view;
@@ -10,11 +10,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -44,7 +47,13 @@ public class RootLayoutController {
     
     @FXML
     public void LoadNew(){
-        this.initTechu.setFilePath(null);
+        FileChooser localFileChooser = new FileChooser();
+        FileChooser.ExtensionFilter localExtensionFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", new String[] { "*.txt" });
+        localFileChooser.getExtensionFilters().add(localExtensionFilter);
+        File localFile = localFileChooser.showOpenDialog(this.initTechu.getPrimaryStage());
+        if(localFile != null){
+            this.initTechu.loadDataFromFile(localFile);
+        }
     
     }
     
@@ -78,7 +87,9 @@ public class RootLayoutController {
         }
              
     }
-    
+    /**
+     * Guarda el la información del grafo en un un archivo .xml
+     */
     public void saveAs(){
         FileChooser localFileChooser = new FileChooser();
         FileChooser.ExtensionFilter localExtensionFilter = new FileChooser.ExtensionFilter("XML files (*.xml)", new String[] { "*.xml" });
@@ -92,16 +103,26 @@ public class RootLayoutController {
         }
     }
     
+    /**
+     * Salida de la Aplicacion
+     */
     @FXML
     public void exitApp(){
         System.exit(0);
     }
     
+    /**
+     * Abre el manual de usuario
+     */
     @FXML
-    public void openManual(){
+    public void openManual() throws URISyntaxException, IOException{
+        this.initTechu.showManual();
         
     }
     
+    /**
+     * Abre ventana de Información de la Aplicación 
+     */
     @FXML 
     public void aboutInfo(){
         this.initTechu.showAbout();

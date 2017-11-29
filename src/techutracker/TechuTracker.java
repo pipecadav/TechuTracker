@@ -5,8 +5,13 @@
  */
 package techutracker;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.prefs.Preferences;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -153,6 +158,9 @@ public class TechuTracker extends Application {
         }
     }
     
+    public void showManual() throws URISyntaxException, IOException{
+        Desktop.getDesktop().browse(new URI("https://drive.google.com/open?id=0B_l9JddVlcviczlRc1JDbXllVlU"));
+    }
     
     public static void main(String[] args) {
        launch(args);

@@ -11,11 +11,16 @@ and open the template in the editor.
     -fx-background-color: white;
 }
 
+
 .label {
     -fx-font-size: 10pt;
     -fx-font-family: "Segoe UI Semibold";
     -fx-text-fill: #1d1d1d;
     -fx-opacity: 0.6;
+}
+
+.text {
+    -fx-font-smoothing-type: gray;
 }
 
 .label-bright {
