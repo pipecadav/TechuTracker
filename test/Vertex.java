@@ -2,7 +2,8 @@
  * Esta clase contiene el objeto vértice. 
  * Este objeto se instancia en la Lista Ligada de Adyacencia
  */
-package techutracker.model;
+
+import techutracker.model.*;
 
 /**
  *

@@ -1,8 +1,9 @@
 /*
  * Esta clase permite representar un grafo Dirigido como Lista Ligada de Ayacencia  
  */
-package techutracker.model;
 
+
+import techutracker.model.*;
 import java.util.ArrayList;
 
 /**
@@ -25,8 +26,8 @@ public class DirectedGraph {
                     break;
                 }else{
                     root = new Vertex(cellNumber);
-                    ult = x = root;
                     vector.add(root);
+                    ult = x = root;
                 }
             }
         }else{
@@ -42,33 +43,24 @@ public class DirectedGraph {
      * @param cellNumber 
      */
     public void addAdjacentVertex(String cellNumber){
-        for(Vertex validate: vector){
-            if(!validate.getCellNumber().equals(cellNumber)){
-                Vertex p = new Vertex(cellNumber);
-                ult.setLiga(p);
-                ult = p;
+        if(!vector.isEmpty()){
+            for(Vertex validate: vector){
+                if(validate.getCellNumber().equals(cellNumber)){
+                    break;
+                }else{
+                    Vertex p = new Vertex(cellNumber);
+                    ult.setLiga(p);
+                    ult = p;
+                }                
             }
+        }else{
+            Vertex p = new Vertex(cellNumber);
+            ult.setLiga(p);
+            ult = p;
         }
+            
         
         
     }
-
-    public Vertex getRoot() {
-        return root;
-    }
-
-    public void setRoot(Vertex root) {
-        this.root = root;
-    }
-
-    public ArrayList<Vertex> getVector() {
-        return vector;
-    }
-
-    public void setVector(ArrayList<Vertex> vector) {
-        this.vector = vector;
-    }
-    
-    
     
 }

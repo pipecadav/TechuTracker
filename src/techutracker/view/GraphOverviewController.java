@@ -75,6 +75,7 @@ public class GraphOverviewController {
     public void totalNumbers(){
         resultLabel.setText("Total de Números:");
         
+        
     }
     
 }

@@ -19,6 +19,12 @@ public class AVLTree {
 
     public AVLTree() {
     }
+    /**
+     * Inserta un vector en cada Nodo del Arbol
+     * @param vertex - Recibe un Nodo
+     */
+    
+    //public void insertar
     
     public void insertarDato(Vertex vertex){
         

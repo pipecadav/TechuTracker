@@ -46,7 +46,7 @@ public class RootLayoutController {
      */
     
     @FXML
-    public void LoadNew(){
+    public void LoadNew() throws IOException{
         FileChooser localFileChooser = new FileChooser();
         FileChooser.ExtensionFilter localExtensionFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", new String[] { "*.txt" });
         localFileChooser.getExtensionFilters().add(localExtensionFilter);
@@ -62,7 +62,7 @@ public class RootLayoutController {
      */
     
     @FXML
-    public void openRecord(){
+    public void openRecord() throws IOException{
         FileChooser localFileChooser = new FileChooser();
         FileChooser.ExtensionFilter localExtensionFilter = new FileChooser.ExtensionFilter("XML files (*.xml)", new String[] { "*.xml" });
         localFileChooser.getExtensionFilters().add(localExtensionFilter);

@@ -6,9 +6,15 @@
 package techutracker;
 
 import java.awt.Desktop;
+import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.StreamTokenizer;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -22,6 +28,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javax.xml.bind.JAXBContext;
+import techutracker.model.DirectedGraph;
 import techutracker.view.RootLayoutController;
 
 /**
@@ -34,6 +41,7 @@ public class TechuTracker extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
+    private DirectedGraph theGraph;
     
     public TechuTracker(){
         
@@ -43,7 +51,7 @@ public class TechuTracker extends Application {
      * @param primaryStage 
      */
     @Override
-    public void start(Stage primaryStage){
+    public void start(Stage primaryStage) throws IOException{
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("TECH U Tracker");
         this.primaryStage.getIcons().add(new Image("file:src/techutracker/view/resources/img/App_icon.png"));
@@ -54,7 +62,7 @@ public class TechuTracker extends Application {
     /**
      * Inicializa la barra de menu y la ventana principal
      */
-    public void initRootLayout(){
+    public void initRootLayout() throws IOException{
         try{
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(TechuTracker.class.getResource("view/RootLayout.fxml"));
@@ -70,8 +78,8 @@ public class TechuTracker extends Application {
         catch (IOException localIOException){
             localIOException.printStackTrace();
         }
-        File localFile = getFilePath();
-        if(localFile != null){
+            File localFile = getFilePath();
+            if(localFile != null){
             loadDataFromFile(localFile);
         }
     }
@@ -126,7 +134,20 @@ public class TechuTracker extends Application {
      * Carga los datos de un grafo en base a un archivo
      * @param theFile - Archivo seleccionado
      */
-    public void loadDataFromFile(File theFile){
+    public void loadDataFromFile(File theFile) throws FileNotFoundException, IOException{
+       DataInputStream loadFile = new DataInputStream(new FileInputStream(theFile.getPath()));
+       BufferedReader readFile = new BufferedReader(new InputStreamReader(loadFile));
+       String linetoRead;
+       while((linetoRead = readFile.readLine()) != null){
+           String [] data = linetoRead.split("|");
+           String data1 = data[0];
+           String data2 = data[1];
+           System.out.println(data1);
+           System.out.println(data2);
+
+           
+       }
+       
        
     }
     /**
@@ -160,6 +181,10 @@ public class TechuTracker extends Application {
     
     public void showManual() throws URISyntaxException, IOException{
         Desktop.getDesktop().browse(new URI("https://drive.google.com/open?id=0B_l9JddVlcviczlRc1JDbXllVlU"));
+    }
+    
+    public void addNumbertoGraph(){
+        
     }
     
     public static void main(String[] args) {
