@@ -4,7 +4,9 @@
 package techutracker.view;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.text.TextFlow;
 import techutracker.TechuTracker;
 
 /**
@@ -20,6 +22,9 @@ public class GraphOverviewController {
     
     @FXML
     private TextField numberBTextField;
+    
+    @FXML
+    private Label resultLabel;
     
     
     private TechuTracker initTechu;
@@ -43,7 +48,7 @@ public class GraphOverviewController {
      */
     @FXML
     public void conectionAB(){
-        
+        resultLabel.setText("Relación entre A y B:");
     }
     
     /**
@@ -52,7 +57,7 @@ public class GraphOverviewController {
      */
     @FXML
     public void lessAmountHops(){
-        
+        resultLabel.setText("Menor cantidad de Saltos:");
     }
     
     /**
@@ -60,7 +65,7 @@ public class GraphOverviewController {
      */
     @FXML
     public void amountOfCallsA(){
-        
+        resultLabel.setText("Cantidad de Llamadas de A:");
     }
     
     /**
@@ -68,6 +73,7 @@ public class GraphOverviewController {
      */
     @FXML
     public void totalNumbers(){
+        resultLabel.setText("Total de Números:");
         
     }
     

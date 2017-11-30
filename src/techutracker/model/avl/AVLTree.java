@@ -1,33 +1,37 @@
+/*
+ * Esta clase almacena los números telefónicos en un Arbol AVL 
+ */
+package techutracker.model.avl;
 
-package avl;
+import techutracker.model.Vertex;
+import techutracker.model.avl.AVLNode;
 
-import listaadyacencia.Nodo;
 
 /**
  * Codificación de lo visto en clase
  * @author Felipe Cadavid
  */
-public class ArbolAVL {
+public class AVLTree {
     
-    NodoAVL root;
-    NodoAVL ult;
-    NodoAVL x;
+    AVLNode root;
+    AVLNode ult;
+    AVLNode x;
 
-    public ArbolAVL() {
+    public AVLTree() {
     }
     
-    public void insertarDato(Nodo vertice){
+    public void insertarDato(Vertex vertex){
         
-        NodoAVL n = new NodoAVL(vertice);
+        AVLNode n = new AVLNode(vertex);
         if(root == null){
             root = n;
         }
-        NodoAVL x = root;
-        NodoAVL padreX = null;
-        NodoAVL pivote = root;
-        NodoAVL padrePivote = null;
-        NodoAVL y;
-        NodoAVL q = null;
+        AVLNode x = root;
+        AVLNode padreX = null;
+        AVLNode pivote = root;
+        AVLNode padrePivote = null;
+        AVLNode y;
+        AVLNode q = null;
         
         while(x != null){
             
@@ -102,22 +106,22 @@ public class ArbolAVL {
         }
     }
     
-    public void rotacionDerecha(NodoAVL pivote, NodoAVL q){
+    public void rotacionDerecha(AVLNode pivote, AVLNode q){
         pivote.setLigaIzq(q.getLigaDer());
         q.setLigaDer(pivote);
         pivote.setfB(0);
         q.setfB(0);
     }
     
-    public void rotacionIzquierda(NodoAVL pivote, NodoAVL q){
+    public void rotacionIzquierda(AVLNode pivote, AVLNode q){
         pivote.setLigaDer(q.getLigaIzq());
         q.setLigaIzq(q);
         pivote.setfB(0);
         q.setfB(0);
     }
     
-    public void dobleRotacionDerecha(NodoAVL pivote, NodoAVL q){
-        NodoAVL r = q.getLigaDer();
+    public void dobleRotacionDerecha(AVLNode pivote, AVLNode q){
+        AVLNode r = q.getLigaDer();
         q.setLigaDer(r.getLigaIzq());
         r.setLigaIzq(q);
         pivote.setLigaIzq(r.getLigaDer());
@@ -140,8 +144,8 @@ public class ArbolAVL {
         q = r;
     }
      
-    public void dobleRotacionIzquierda(NodoAVL pivote, NodoAVL q){
-        NodoAVL r = q.getLigaIzq();
+    public void dobleRotacionIzquierda(AVLNode pivote, AVLNode q){
+        AVLNode r = q.getLigaIzq();
         q.setLigaIzq(r.getLigaDer());
         r.setLigaDer(q);
         pivote.setLigaDer(r.getLigaDer());
