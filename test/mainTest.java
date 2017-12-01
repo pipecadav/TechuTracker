@@ -1,3 +1,7 @@
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,17 +14,49 @@
  */
 public class mainTest {
     
-    public static void main(String[] args) {
-        
-        String linea = ("3128355757|3207614526");
-        String [] separar = linea.split("\\|");
-        String parte1 = separar[0];
-        String parte2 = separar[1];
+    static ArrayList <LinkedListVertex> listadeGrafos = new ArrayList();
+    
+    static void splitLine(String sentence){
+        String [] getNumber = sentence.split("\\|");
+        String parte1 = getNumber[0];
+        String parte2 = getNumber[1];
         
         System.out.println(parte1);
-        System.out.println(parte2);    
-            
-              
+        System.out.println(parte2);  
+    }
+
+    
+    public static void main(String[] args) {
+        
+        AVLTree arbol = new AVLTree();
+        
+        arbol.insertarDato("50");
+        arbol.insertarDato("32");
+        arbol.insertarDato("98");
+        arbol.insertarDato("48");
+        arbol.insertarDato("60");
+        
+        
+
+        AVLNode r = arbol.getRoot();
+        
+        arbol.addEdgeToVertex(r, "50", "32");
+        arbol.addEdgeToVertex(r, "50", "48");
+        arbol.addEdgeToVertex(r, "98", "50");
+        arbol.addEdgeToVertex(r, "32", "60");
+        arbol.addEdgeToVertex(r, "32", "48");
+        arbol.addEdgeToVertex(r, "48", "60");
+        arbol.addEdgeToVertex(r, "60", "98");
+        
+        
+        
+        
+        arbol.showGraph(r);
+        
+        System.out.println(arbol.getTotalNumbers());
+
+       
+       
         
         
     }

@@ -3,10 +3,6 @@
  */
 
 
-import techutracker.model.avl.*;
-import techutracker.model.Vertex;
-import techutracker.model.avl.AVLNode;
-
 
 /**
  * Codificación de lo visto en clase
@@ -14,22 +10,23 @@ import techutracker.model.avl.AVLNode;
  */
 public class AVLTree {
     
-    AVLNode root;
-    AVLNode ult;
-    AVLNode x;
+    private AVLNode root;
+    private AVLNode ult;
+    private AVLNode x;
+    private int totalNumbers = 0;
 
     public AVLTree() {
     }
     /**
      * Inserta un vector en cada Nodo del Arbol
-     * @param vertex - Recibe un Nodo
+     * @param cellNumber
      */
     
     //public void insertar
     
-    public void insertarDato(Vertex vertex){
-        
-        AVLNode n = new AVLNode(vertex);
+    public void insertarDato(String cellNumber){
+        AVLNode n = new AVLNode(cellNumber);
+        totalNumbers = totalNumbers + 1;
         if(root == null){
             root = n;
         }
@@ -174,4 +171,60 @@ public class AVLTree {
         r.setfB(0);
         q = r;
     }
+
+    
+    public void showGraph(AVLNode r){
+        if(r != null){
+            showGraph(r.getLigaIzq());
+            r.getVertice().ViewEdgesofVertex();
+            System.out.println(" ");
+            showGraph(r.getLigaDer());
+        }
+
+    }
+    
+    public void addEdgeToVertex(AVLNode r, String cellNumber, String cellNumberDestiny){
+        if(r != null){
+            addEdgeToVertex(r.getLigaIzq(), cellNumber, cellNumberDestiny);
+            if(r.getCellNumber().equals(cellNumber)){
+                r.getVertice().addEdge(cellNumberDestiny);
+            }
+            addEdgeToVertex(r.getLigaDer(), cellNumber, cellNumberDestiny);
+        }
+
+    }
+
+    public AVLNode getRoot() {
+        return root;
+    }
+
+    public void setRoot(AVLNode root) {
+        this.root = root;
+    }
+
+    public AVLNode getUlt() {
+        return ult;
+    }
+
+    public void setUlt(AVLNode ult) {
+        this.ult = ult;
+    }
+
+    public AVLNode getX() {
+        return x;
+    }
+
+    public void setX(AVLNode x) {
+        this.x = x;
+    }
+
+    public int getTotalNumbers() {
+        return totalNumbers;
+    }
+
+    public void setTotalNumbers(int totalNumbers) {
+        this.totalNumbers = totalNumbers;
+    }
+    
+    
 }

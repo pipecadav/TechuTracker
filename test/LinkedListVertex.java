@@ -6,15 +6,17 @@
  * @author Felipe Cadavid
  * @version 1.0
  */
-public class Graph {
-    
-    Vertex root, ult, x;
+public class LinkedListVertex {
+
+    private Vertex root;
+    private Vertex ult;
+    private Vertex x;
     
     /**
      * Constructor
      * @param cellNumber
      */
-    public Graph(String cellNumber){
+    public LinkedListVertex(String cellNumber){
        root = new Vertex(cellNumber);
        ult = x = root;
     }
@@ -30,22 +32,19 @@ public class Graph {
         ult = p;
     }
     
-    //public void addEdge(String cellNumber){
-    //    Vertex p = new Vertex(cellNumber);
-    //    Vertex q = v;
-    //    if(q.getLiga() != null){
-    //        while(q.getLiga() != null){
-    //            q = q.getLiga();
-    //        }
-    //    }else{
-    //        q.setLiga(p);
-    //        
-    //    } 
-    //}
-    
-    public void ViewEdgesofVertex(Vertex v){
+    public void ViewEdgesofVertex(){
         while(x != null){
-            System.out.println(x.getCellNumber() +" ->" );
+            System.out.print(x.getCellNumber() +" ->" );
+            x = x.getLiga();
         }
     }
+
+    public Vertex getRoot() {
+        return root;
+    }
+
+    public void setRoot(Vertex root) {
+        this.root = root;
+    }
+
 }

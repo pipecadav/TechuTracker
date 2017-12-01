@@ -12,10 +12,12 @@ public class AVLNode {
     private AVLNode ligaIzq;
     private AVLNode ligaDer;
     private int fB;
-    private Graph vertex;
+    private String cellNumber;
+    private LinkedListVertex vertex;
 
-    public AVLNode(Graph vertex) {
-        this.vertex = vertex;
+    public AVLNode(String cellNumber) {
+        vertex = new LinkedListVertex(cellNumber);
+        this.cellNumber = cellNumber;
         ligaIzq = ligaDer = null;
     }
 
@@ -43,18 +45,36 @@ public class AVLNode {
         this.fB = fB;
     }
 
-    public Object getVertice() {
+    public LinkedListVertex getVertice() {
         return vertex;
     }
 
-    public void setVertex(Graph vertex) {
+    public void setVertex(LinkedListVertex vertex) {
         this.vertex = vertex;
     }
     
+    
+    
     public int compareTo(AVLNode x){
-        //pendiente hacer esta funcion
-        return 1;
+        long number1 = Long.parseLong(this.cellNumber);
+        long number2 = Long.parseLong(x.cellNumber);
+        if(number1 == number2){
+            return 0;
+        }else if(number1 < number2){
+           return -1;   
+        }else{
+           return 1;
+        }
     }
+
+    public String getCellNumber() {
+        return cellNumber;
+    }
+
+    public void setCellNumber(String cellNumber) {
+        this.cellNumber = cellNumber;
+    }
+    
 
     
 }
