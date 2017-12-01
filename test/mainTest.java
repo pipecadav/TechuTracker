@@ -10,4 +10,18 @@
  */
 public class mainTest {
     
+    public static void main(String[] args) {
+        
+        String linea = ("3128355757|3207614526");
+        String [] separar = linea.split("\\|");
+        String parte1 = separar[0];
+        String parte2 = separar[1];
+        
+        System.out.println(parte1);
+        System.out.println(parte2);    
+            
+              
+        
+        
+    }
 }

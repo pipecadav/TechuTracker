@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class DirectedGraph {
     
     Vertex root, ult, x;
-    ArrayList <Vertex> vector = new ArrayList();
+    ArrayList <Vertex> vector;
     
     /**
      * Crea los vertices y los almacena en un vector del tipo Array List
