@@ -1,3 +1,6 @@
+
+import java.util.ArrayList;
+
 /*
  * Esta clase almacena los números telefónicos en un Arbol AVL 
  * Tambien almacena la lista ligada vertice.
@@ -15,6 +18,7 @@ public class AVLTree {
     private AVLNode ult;
     private AVLNode x;
     private int totalNumbers;
+    private   ArrayList <LinkedListVertex> adjList = new ArrayList();
 
     public AVLTree() {
     }
@@ -238,6 +242,19 @@ public class AVLTree {
             SearchPhoneCallLog(r.getLigaDer(), cellNumber);
         }    
     }
+    
+    /**
+     * Indexa la los vertices y sus adyacentes en un Array
+     * @param r
+     */
+  
+    public void convertToArrayList(AVLNode r){
+        if(r != null){
+            convertToArrayList(r.getLigaIzq());
+            adjList.add(r.getVertice());
+            convertToArrayList(r.getLigaDer());
+        }
+    }
 
     /**
      * Permite obtener la raiz del árbol
@@ -254,5 +271,9 @@ public class AVLTree {
     public int getTotalNumbers() {
         return totalNumbers;
     }    
+
+    public ArrayList <LinkedListVertex> getAdjList() {
+        return adjList;
+    }
 
 }

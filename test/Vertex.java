@@ -3,8 +3,6 @@
  * Este objeto se instancia en la Lista Ligada de Adyacencia
  */
 
-import techutracker.model.*;
-
 /**
  *
  * @author Felipe Cadavid

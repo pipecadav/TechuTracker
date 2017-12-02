@@ -54,9 +54,19 @@ public class mainTest {
         arbol.showGraph(r);
 
         
-        System.out.println(arbol.getTotalNumbers());
-        arbol.SearchPhoneCallLog(r, "60");
+        //System.out.println(arbol.getTotalNumbers());
+        //arbol.SearchPhoneCallLog(r, "60");
         
+        arbol.convertToArrayList(r);
+        
+        
+        System.out.println(arbol.getAdjList().get(0).getPhonecallCount());    
+        System.out.println(arbol.getAdjList().get(1).getPhonecallCount());    
+        System.out.println(arbol.getAdjList().get(2).getPhonecallCount());    
+        System.out.println(arbol.getAdjList().get(3).getPhonecallCount());
+        System.out.println(arbol.getAdjList().get(4).getPhonecallCount());
+        
+
 
         
 

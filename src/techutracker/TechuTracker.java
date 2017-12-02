@@ -28,7 +28,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javax.xml.bind.JAXBContext;
-import techutracker.model.DirectedGraph;
+
 import techutracker.view.RootLayoutController;
 
 /**
@@ -41,7 +41,7 @@ public class TechuTracker extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
-    private DirectedGraph theGraph;
+
     
     public TechuTracker(){
         
@@ -180,7 +180,7 @@ public class TechuTracker extends Application {
     }
     
     public void showManual() throws URISyntaxException, IOException{
-        Desktop.getDesktop().browse(new URI("https://drive.google.com/open?id=0B_l9JddVlcviczlRc1JDbXllVlU"));
+        Desktop.getDesktop().browse(new URI("https://drive.google.com/open?id=15NoZ3SUV4nUDEEd7Wf_QqeETFkwQGNSE"));
     }
     
     public void addNumbertoGraph(){
