@@ -15,12 +15,14 @@ public class LinkedListVertex {
     private Vertex ult;
     private Vertex x;
     private int phonecallCount;
+    private String cellNumber;
     
     /**
      * Constructor
      * @param cellNumber
      */
     public LinkedListVertex(String cellNumber){
+       this.cellNumber = cellNumber;
        root = new Vertex(cellNumber);
        ult = x = root;
     }
@@ -76,6 +78,10 @@ public class LinkedListVertex {
      */
     public void setPhonecallCount(int phonecallCount) {
         this.phonecallCount = phonecallCount;
+    }
+
+    public String getCellNumber() {
+        return cellNumber;
     }
     
 

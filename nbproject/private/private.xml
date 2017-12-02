@@ -4,7 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/cadav/OneDrive/Documents/NetBeansProjects/TechuTracker/src/techutracker/view/GraphOverviewController.java</file>
-            <file>file:/C:/Users/cadav/OneDrive/Documents/NetBeansProjects/TechuTracker/src/techutracker/model/DirectedGraph.java</file>
+            <file>file:/C:/Users/cadav/OneDrive/Documents/NetBeansProjects/TechuTracker/src/techutracker/model/directedgraph/PathsAndCosts.java</file>
             <file>file:/C:/Users/cadav/OneDrive/Documents/NetBeansProjects/TechuTracker/src/techutracker/TechuTracker.java</file>
             <file>file:/C:/Users/cadav/OneDrive/Documents/NetBeansProjects/TechuTracker/src/techutracker/view/RootLayoutController.java</file>
         </group>

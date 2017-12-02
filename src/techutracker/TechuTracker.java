@@ -28,6 +28,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javax.xml.bind.JAXBContext;
+import techutracker.model.avl.AVLTree;
+import techutracker.model.avl.AVLNode;
 
 import techutracker.view.RootLayoutController;
 
@@ -41,6 +43,8 @@ public class TechuTracker extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
+    private AVLTree tree = new AVLTree();
+    private AVLNode r = tree.getRoot();
 
     
     public TechuTracker(){
@@ -100,7 +104,18 @@ public class TechuTracker extends Application {
     public Stage getPrimaryStage(){
         return primaryStage;
     }
+    public AVLTree getTree(){
+        return this.tree;
+    }
     
+    public AVLNode getAVLNode(){
+        return r;
+        
+    }
+    
+    public int getTreeNumber(){
+       return tree.getTotalNumbers();
+    }
     /**
      * Retorna el archivo que fue abierto por ultima vez. 
      * Esto se hace a traves de preferencias que se leen desde el SO.
@@ -139,15 +154,14 @@ public class TechuTracker extends Application {
        BufferedReader readFile = new BufferedReader(new InputStreamReader(loadFile));
        String linetoRead;
        while((linetoRead = readFile.readLine()) != null){
-           String [] data = linetoRead.split("|");
+           String [] data = linetoRead.split("\\|");
            String data1 = data[0];
            String data2 = data[1];
-           System.out.println(data1);
-           System.out.println(data2);
-
+           tree.insertNumber(data1);
+           tree.insertNumber(data2);
+           tree.addEdgeToVertex(r, data1, data2);
            
        }
-       
        
     }
     /**
@@ -181,10 +195,6 @@ public class TechuTracker extends Application {
     
     public void showManual() throws URISyntaxException, IOException{
         Desktop.getDesktop().browse(new URI("https://drive.google.com/open?id=15NoZ3SUV4nUDEEd7Wf_QqeETFkwQGNSE"));
-    }
-    
-    public void addNumbertoGraph(){
-        
     }
     
     public static void main(String[] args) {

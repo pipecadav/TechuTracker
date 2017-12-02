@@ -17,10 +17,19 @@ public class PathsAndCosts {
     AVLTree tree;
     ArrayList <LinkedListVertex> adjlinkedlist;
     
-    public void searchPath(AVLTree tree){
+    public void searchPath(String cellNumber1, String cellNumber2){
         AVLNode r = tree.getRoot();
         tree.convertToArrayList(r);
         adjlinkedlist = tree.getAdjList();
+        
+        for(LinkedListVertex search: adjlinkedlist){
+            if(search.getCellNumber().equals(cellNumber1)){
+                Vertex p = search.getRoot();
+                while(p != null){
+                    
+                }
+            }
+        }
 
     }            
         

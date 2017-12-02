@@ -26,8 +26,11 @@ public class GraphOverviewController {
     @FXML
     private Label resultLabel;
     
+    @FXML
+    private Label outputLabel;
     
-    private TechuTracker initTechu;
+    
+    private TechuTracker techutracker;
     
     /**
      * Constructor
@@ -37,8 +40,9 @@ public class GraphOverviewController {
     
     /**
      * Llamado para hacer referencia a si mismo
+     * @param techutracker
      */
-    public void setInitTechu(TechuTracker initTechy){
+    public void setTechutracker(TechuTracker techutracker){
         
     }
     
@@ -66,6 +70,7 @@ public class GraphOverviewController {
     @FXML
     public void amountOfCallsA(){
         resultLabel.setText("Cantidad de Llamadas de A:");
+        
     }
     
     /**
