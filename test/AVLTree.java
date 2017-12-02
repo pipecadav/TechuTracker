@@ -1,5 +1,6 @@
 /*
  * Esta clase almacena los números telefónicos en un Arbol AVL 
+ * Tambien almacena la lista ligada vertice.
  */
 
 
@@ -13,18 +14,17 @@ public class AVLTree {
     private AVLNode root;
     private AVLNode ult;
     private AVLNode x;
-    private int totalNumbers = 0;
+    private int totalNumbers;
 
     public AVLTree() {
     }
     /**
-     * Inserta un vector en cada Nodo del Arbol
+     * Inserta un registro celular en el arbol en forma de vértice.
      * @param cellNumber
      */
     
-    //public void insertar
     
-    public void insertarDato(String cellNumber){
+    public void insertNumber(String cellNumber){
         AVLNode n = new AVLNode(cellNumber);
         totalNumbers = totalNumbers + 1;
         if(root == null){
@@ -110,6 +110,11 @@ public class AVLTree {
         }
     }
     
+    /**
+     * Permite realizar rotación a la DERECHA para balancear el arbol
+     * @param pivote
+     * @param q 
+     */
     public void rotacionDerecha(AVLNode pivote, AVLNode q){
         pivote.setLigaIzq(q.getLigaDer());
         q.setLigaDer(pivote);
@@ -117,6 +122,11 @@ public class AVLTree {
         q.setfB(0);
     }
     
+    /**
+     * Permite realizar rotación a la IZQUIERDA para balancear el arbol
+     * @param pivote
+     * @param q 
+     */
     public void rotacionIzquierda(AVLNode pivote, AVLNode q){
         pivote.setLigaDer(q.getLigaIzq());
         q.setLigaIzq(q);
@@ -124,6 +134,11 @@ public class AVLTree {
         q.setfB(0);
     }
     
+    /**
+     * Permite realizar DOBLE rotación a la DERECHA para balancear el arbol
+     * @param pivote
+     * @param q 
+     */
     public void dobleRotacionDerecha(AVLNode pivote, AVLNode q){
         AVLNode r = q.getLigaDer();
         q.setLigaDer(r.getLigaIzq());
@@ -148,6 +163,11 @@ public class AVLTree {
         q = r;
     }
      
+    /**
+     * Permite realizar DOBLE rotación a la IZQUIERDA para balancear el arbol
+     * @param pivote
+     * @param q 
+     */
     public void dobleRotacionIzquierda(AVLNode pivote, AVLNode q){
         AVLNode r = q.getLigaIzq();
         q.setLigaIzq(r.getLigaDer());
@@ -172,7 +192,10 @@ public class AVLTree {
         q = r;
     }
 
-    
+    /**
+     * Permite Mostrar el grafo represetado como lista ligada de adyacencia + arbol
+     * @param r - Recibe un tipo de dato NODOAVL
+     */
     public void showGraph(AVLNode r){
         if(r != null){
             showGraph(r.getLigaIzq());
@@ -183,6 +206,13 @@ public class AVLTree {
 
     }
     
+    /**
+     * Permite añadir un vértice adyacente al vértice en cuestión.
+     * Tambien establece la cantidad de llamadas hechas por este registro
+     * @param r - Recibe un tipo de dato NODOAVL
+     * @param cellNumber - Recibe el número celular de origen
+     * @param cellNumberDestiny  - Recibe el número celular al cual llama el número A
+     */
     public void addEdgeToVertex(AVLNode r, String cellNumber, String cellNumberDestiny){
         if(r != null){
             addEdgeToVertex(r.getLigaIzq(), cellNumber, cellNumberDestiny);
@@ -193,38 +223,36 @@ public class AVLTree {
         }
 
     }
+    
+    /**
+     * Permite obtener la cantidad de llamadas que realizó un número.
+     * @param r - Recibe un parametro tipo NODOAVL
+     * @param cellNumber - Recibe un registro celular como parámetro
+     */
+    public void SearchPhoneCallLog(AVLNode r, String cellNumber){
+        if(r != null){
+            SearchPhoneCallLog(r.getLigaIzq(), cellNumber);
+            if(r.getCellNumber().equals(cellNumber)){
+                System.out.println(r.getVertice().getPhonecallCount());               
+            }
+            SearchPhoneCallLog(r.getLigaDer(), cellNumber);
+        }    
+    }
 
+    /**
+     * Permite obtener la raiz del árbol
+     * @return 
+     */
     public AVLNode getRoot() {
         return root;
     }
 
-    public void setRoot(AVLNode root) {
-        this.root = root;
-    }
-
-    public AVLNode getUlt() {
-        return ult;
-    }
-
-    public void setUlt(AVLNode ult) {
-        this.ult = ult;
-    }
-
-    public AVLNode getX() {
-        return x;
-    }
-
-    public void setX(AVLNode x) {
-        this.x = x;
-    }
-
+    /**
+     * Permite obtener el número total de registros del arbol.
+     * @return 
+     */
     public int getTotalNumbers() {
         return totalNumbers;
-    }
+    }    
 
-    public void setTotalNumbers(int totalNumbers) {
-        this.totalNumbers = totalNumbers;
-    }
-    
-    
 }

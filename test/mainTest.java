@@ -30,11 +30,11 @@ public class mainTest {
         
         AVLTree arbol = new AVLTree();
         
-        arbol.insertarDato("50");
-        arbol.insertarDato("32");
-        arbol.insertarDato("98");
-        arbol.insertarDato("48");
-        arbol.insertarDato("60");
+        arbol.insertNumber("50");
+        arbol.insertNumber("32");
+        arbol.insertNumber("98");
+        arbol.insertNumber("48");
+        arbol.insertNumber("60");
         
         
 
@@ -52,10 +52,16 @@ public class mainTest {
         
         
         arbol.showGraph(r);
+
         
         System.out.println(arbol.getTotalNumbers());
+        arbol.SearchPhoneCallLog(r, "60");
+        
+
+        
 
        
+
        
         
         
